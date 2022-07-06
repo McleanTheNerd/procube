@@ -77,7 +77,7 @@ class ProjectReviews(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     is_active=models.IntegerField(default=1)
 
-class ProductReviewVoting(models.Model):
+class ProjectReviewVoting(models.Model):
     id=models.AutoField(primary_key=True)
     project_review_id=models.ForeignKey(ProjectReviews,on_delete=models.CASCADE)
     user_id_voting=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
