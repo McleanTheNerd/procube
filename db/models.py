@@ -61,7 +61,7 @@ class Project_prototypes(models.Model):
 class ProjectQuestions(models.Model):
     id=models.AutoField(primary_key=True)
     project_id=models.ForeignKey(Project,on_delete=models.CASCADE)
-    user_id=models.ForeignKey(CustomerUser,on_delete=models.CASCADE)
+    user_id=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     question=models.TextField()
     answer=models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
@@ -70,7 +70,7 @@ class ProjectQuestions(models.Model):
 class ProjectReviews(models.Model):
     id=models.AutoField(primary_key=True)
     project_id=models.ForeignKey(Project,on_delete=models.CASCADE)
-    user_id=models.ForeignKey(CustomerUser,on_delete=models.CASCADE)
+    user_id=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     review_image=models.FileField()
     rating=models.CharField(default="5",max_length=255)
     review=models.TextField(default="")
@@ -80,7 +80,7 @@ class ProjectReviews(models.Model):
 class ProductReviewVoting(models.Model):
     id=models.AutoField(primary_key=True)
     project_review_id=models.ForeignKey(ProjectReviews,on_delete=models.CASCADE)
-    user_id_voting=models.ForeignKey(CustomerUser,on_delete=models.CASCADE)
+    user_id_voting=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     created_at=models.DateTimeField(auto_now_add=True)
     is_active=models.IntegerField(default=1)
 
@@ -96,7 +96,7 @@ class ProjectOrders(models.Model):
 
 class OrderDeliveryStatus(models.Model):
     id=models.AutoField(primary_key=True)
-    order_id=models.ForeignKey(CustomerOrders,on_delete=models.CASCADE)
+    order_id=models.ForeignKey(ProjectOrders,on_delete=models.CASCADE)
     status=models.CharField(max_length=255)
     status_message=models.CharField(max_length=255)
     created_at=models.DateTimeField(auto_now_add=True)
