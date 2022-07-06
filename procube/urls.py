@@ -7,6 +7,8 @@ from core.views import  authentication as auth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',auth.login)
+    path('',auth.login),
+    path('login',auth.login_process),
+    
 
 ]
