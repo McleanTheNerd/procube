@@ -3,7 +3,7 @@
 
 from django.contrib import admin
 from django.urls import path,include
-from core.views authentication as auth
+from core.views import  authentication as auth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
