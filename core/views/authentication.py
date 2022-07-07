@@ -3,13 +3,13 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from api.models import CustomUser
+from db.models import CustomUser
 from core.forms import SignUpForm
 
 from core.EmailBackEnd import EmailBackEnd
 
 def register(request):
-    return render(request, 'dashboard/signup.html')
+    return render(request, 'registration/signup.html')
 
 def registration(request):
     if request.method != "POST":
@@ -32,7 +32,7 @@ def registration(request):
 
 
 def loginPage(request):
-    return render(request, 'dashboard/signin.html')
+    return render(request, 'registration/login.html')
 
 
 
