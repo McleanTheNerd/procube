@@ -23,7 +23,7 @@ def registration(request):
         try:
             user = CustomUser.objects.create_user(username=username, password=password, email=email, user_type=3)
             user.save()
-            messages.success(request, "registration successfully!")
+            messages.success(request, "account created successfully!")
             return HttpResponseRedirect('login_index')
         except:
             messages.error(request, "registration failed , contact help desk")
@@ -45,7 +45,7 @@ def doLogin(request):
             auth_login(request, user)
             return redirect('/')
         else:
-            messages.error(request, "Invalid Login Credentials!")
+            messages.error(request, "invalid login credentials!")
             #return HttpResponseRedirect("/")
             return redirect('login')
 
@@ -55,7 +55,7 @@ def get_user_details(request):
     if request.user != None:
         return HttpResponse("User: "+request.user.email+" User Type: "+request.user.user_type)
     else:
-        return HttpResponse("Please Login First")
+        return HttpResponse("please login first")
 
 
 
