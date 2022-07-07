@@ -4,7 +4,6 @@ from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from db.models import CustomUser
-from core.forms import SignUpForm
 
 from core.EmailBackEnd import EmailBackEnd
 
@@ -36,7 +35,7 @@ def loginPage(request):
 
 
 
-def doLogin(request):
+def login_process(request):
     if request.method != "POST":
         return HttpResponse("<h2>Method Not Allowed</h2>")
     else:
