@@ -41,12 +41,13 @@ def login_process(request):
     else:
         user = EmailBackEnd.authenticate(request, username=request.POST.get('email'), password=request.POST.get('password'))
         if user != None:
-            auth_login(request, user)
-            return redirect('/')
+            auth_login(request,user)
+            messages.success(request, "Welcome , "+user.username)
+            return HttpResponseRedirect('/')
         else:
             messages.error(request, "invalid login credentials!")
             #return HttpResponseRedirect("/")
-            return redirect('login')
+            return HttpResponseRedirect('/')
 
 
 

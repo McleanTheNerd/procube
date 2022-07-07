@@ -118,8 +118,8 @@ STATIC_ROOT = os.path.join(BASE_DIR,'assets','static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'assets','media')
 
-LOGIN_URL = '/'
-LOGIN_REDIRECT_URL = '/'
+# LOGIN_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL="db.CustomUser"
 

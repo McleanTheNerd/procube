@@ -43,7 +43,8 @@
         </p>
       </header>
       <!-- form -->
-      <form class="auth-form" action="login" method="post">
+
+      <form class="auth-form" action="login_process" method="post">
         {% csrf_token %}
         <!-- .form-group -->
         <div class="form-group">
@@ -60,6 +61,22 @@
             <label for="inputPassword">Password</label>
           </div>
         </div>
+        {% if messages %}
+          <div class="form-group">
+            {% for message in messages %}
+                {% if message.tags == "error" %}
+                  <div class="alert alert-danger">
+                      {{ message }}
+                  </div>
+                {% endif %}
+                {% if message.tags == "success" %}
+                  <div class="alert alert-success">
+                      {{ message }}
+                  </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
         <!-- /.form-group -->
         <!-- .form-group -->
         <div class="form-group">

@@ -10,5 +10,5 @@ from procube import settings
 
 urlpatterns = [
     path('',auth.loginPage),
-    path('login',auth.login_process),
+    path('login_process',auth.login_process),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
