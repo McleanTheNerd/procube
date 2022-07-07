@@ -46,7 +46,6 @@ def login_process(request):
             return HttpResponseRedirect('/')
         else:
             messages.error(request, "invalid login credentials!")
-            #return HttpResponseRedirect("/")
             return HttpResponseRedirect('/')
 
 
